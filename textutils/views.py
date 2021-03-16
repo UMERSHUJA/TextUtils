@@ -30,7 +30,7 @@ def analyze(request):
             'analyzed_text': analyzed
         }
         
-        analyzed = djtext
+        djtext = analyzed        
 
     if capitalized == 'on':
         analyzed = ""
@@ -40,7 +40,7 @@ def analyze(request):
             'purpose': 'Capitalize text',
             'analyzed_text': analyzed
         }
-        analyzed = djtext
+        djtext = analyzed
 
 
     if newlineremover == 'on':
@@ -53,7 +53,7 @@ def analyze(request):
             'purpose': 'New LineRemover',
             'analyzed_text': analyzed
         }
-        analyzed = djtext
+        djtext = analyzed
 
 
     if extraspaceremover == 'on':
@@ -66,7 +66,7 @@ def analyze(request):
             'purpose': 'Extra Space Remover',
             'analyzed_text': analyzed
         }
-        analyzed = djtext
+        djtext = analyzed
 
 
     if charcounter == 'on':
@@ -80,8 +80,10 @@ def analyze(request):
             'purpose': 'Character Counter',
             'analyzed_text': "your paragraph has " + str(analyzed) + " characters." 
         }
+
+        djtext = analyzed
     
-    if removepunc != 'on' and charcounter != 'on' and newlineremover != 'on' and extraspaceremover != 'on' and capitalize != 'on':
+    if removepunc != 'on' and charcounter != 'on' and newlineremover != 'on' and extraspaceremover != 'on' and capitalized != 'on':
         return HttpResponse("Please select any of these operation.")
 
 
